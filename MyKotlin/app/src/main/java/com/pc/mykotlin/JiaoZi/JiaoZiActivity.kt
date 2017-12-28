@@ -56,6 +56,17 @@ class JiaoZiActivity : AppCompatActivity(), JiaoView {
         videoplayer.setUp(url, JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL, "");
     }
 
+    override fun onBackPressed() {
+        if (videoplayer.isPressed){
+            return
+        }
+        super.onBackPressed()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        videoplayer.release()
+    }
 
 }
 
