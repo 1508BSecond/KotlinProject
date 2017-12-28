@@ -54,7 +54,7 @@ class ListActivity : AppCompatActivity() ,ListInfoView {
                 //Intent跳转传值
                 var i: Intent = Intent(this@ListActivity,JiaoZiActivity::class.java)
                 i.putExtra("category",category)
-                i.putExtra("position",position)
+                i.putExtra("position",""+position)
                 startActivity(i)
             }
 
