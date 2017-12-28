@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.pc.mykotlin.JiaoZi.JiaoZiActivity
 import com.pc.mykotlin.R
+import com.pc.mykotlin.publicUI.SearchActivity
 import com.pc.mykotlin.publicUI.sqc_sy.adapter.ShowYeAdapter
 import com.pc.mykotlin.publicUI.sqc_sy.bean.ShouyeBean
 import com.pc.mykotlin.publicUI.sqc_sy.presenter.ShowYePresenter
@@ -27,9 +28,11 @@ class Fragment_SY : Fragment(), ShowYeView {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-
         showYePresenter = ShowYePresenter(this)
         showYePresenter!!.relevance()
+
+
+
         return inflater!!.inflate(R.layout.frag_sy, container, false)
 
 
@@ -54,7 +57,14 @@ class Fragment_SY : Fragment(), ShowYeView {
 
 
 
+        //点击跳转到搜索界面
+        sy_search.setOnClickListener(object :View.OnClickListener{
+            override fun onClick(v: View?) {
+                var i:Intent = Intent(activity, SearchActivity::class.java)
+                startActivity(i)
+            }
 
+        })
 
 
 

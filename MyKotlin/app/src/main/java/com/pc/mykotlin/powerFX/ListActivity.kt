@@ -51,6 +51,9 @@ class ListActivity : AppCompatActivity() ,ListInfoView {
             override fun OnItemListClick(position: Int) {
                 //获取传的值
                 val category = listBean.itemList?.get(position)?.data?.category
+                if(category.equals(null)){
+                    return
+                }
                 //Intent跳转传值
                 var i: Intent = Intent(this@ListActivity,JiaoZiActivity::class.java)
                 i.putExtra("category",category)

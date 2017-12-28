@@ -15,9 +15,10 @@ class WelcomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
 
-        //给图片设置动画
+        //给图片设置属性动画
         var animatorX: ObjectAnimator = ObjectAnimator.ofFloat(wel_iv,"scaleX",0.1f,1.5f)
         var animatorY: ObjectAnimator = ObjectAnimator.ofFloat(wel_iv,"scaleY",0.1f,1.5f)
+        //组合动画
         var animSet: AnimatorSet = AnimatorSet()
         animSet.play(animatorX).with(animatorY)
         animSet.setDuration(3000)

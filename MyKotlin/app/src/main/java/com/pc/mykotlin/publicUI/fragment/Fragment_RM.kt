@@ -1,8 +1,11 @@
 package com.pc.mykotlin.publicUI.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.view.View
 import com.pc.mykotlin.R
+import com.pc.mykotlin.publicUI.SearchActivity
 import com.pc.mykotlin.publicUI.hot.BaseFragment
 import com.pc.mykotlin.publicUI.hot.RankFragment
 import com.pc.mykotlin.publicUI.hot.adapter.HotAdatpter
@@ -41,6 +44,15 @@ class Fragment_RM : BaseFragment() {
         mFragments.add(allFragment as Fragment)
         vp_content.adapter = HotAdatpter(fragmentManager, mFragments, mTabs)
         tabs.setupWithViewPager(vp_content)
+
+        rm_search.setOnClickListener(object :View.OnClickListener{
+            override fun onClick(v: View?) {
+                var i: Intent = Intent(activity, SearchActivity::class.java)
+                startActivity(i)
+            }
+
+        })
+
     }
 
 
