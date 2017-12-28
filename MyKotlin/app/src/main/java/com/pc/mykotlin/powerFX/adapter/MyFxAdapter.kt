@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.pc.mykotlin.R
@@ -19,11 +20,28 @@ class MyFxAdapter(context: Context,list: List<FindBean>): RecyclerView.Adapter<M
     private var context:Context = context
     private var list:List<FindBean> = list
 
+    //设置接口回调
+    var listener:OnItemListener? = null
+    interface OnItemListener{
+        fun OnItemClick(findBean: FindBean)
+    }
+    fun setOnItemListener(listener:OnItemListener){
+        this.listener = listener
+    }
+
     override fun onBindViewHolder(holder: MyViewHolder?, position: Int) {
         //设置图片
         Glide.with(context).load(list.get(position).bgPicture).into(holder?.iv!!)
         //文字
         holder?.tv?.text = list.get(position).name
+
+        //点及跳转到展示界面
+        holder?.rl?.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                listener?.OnItemClick(list.get(position))
+            }
+
+        })
     }
 
     override fun getItemCount(): Int {
@@ -38,5 +56,6 @@ class MyFxAdapter(context: Context,list: List<FindBean>): RecyclerView.Adapter<M
     class MyViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
         var iv:ImageView = itemView?.findViewById(R.id.fx_rlv_iv) as ImageView
         var tv:TextView = itemView?.findViewById(R.id.fx_rlv_tv) as TextView
+        var rl:RelativeLayout = itemView?.findViewById(R.id.fx_rl) as RelativeLayout
     }
 }
