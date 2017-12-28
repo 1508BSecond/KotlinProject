@@ -55,7 +55,7 @@ class JiaoZiActivity : AppCompatActivity(), JiaoView {
 
         videoplayer.setUp(url, JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL, "");
     }
-    
+
 
 }
 
