@@ -14,16 +14,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".publicUI.MainActivity">
+
+        </activity>
+        <activity android:name=".powerFX.ListActivity" />
+        <activity android:name=".JiaoZi.JiaoZiActivity" />
+        <activity android:name=".publicUI.SearchActivity" />
+        <activity android:name=".searchShow.ShowSearchActivity" />
+        <activity android:name=".publicUI.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".powerFX.ListActivity" />
-        <activity android:name=".JiaoZi.JiaoZiActivity" />
-        <activity android:name=".publicUI.SearchActivity" />
-        <activity android:name=".searchShow.ShowSearchActivity"></activity>
     </application>
 
 </manifest>
