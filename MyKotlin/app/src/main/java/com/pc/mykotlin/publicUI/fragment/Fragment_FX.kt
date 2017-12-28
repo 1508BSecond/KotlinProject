@@ -13,13 +13,14 @@ import com.pc.mykotlin.powerFX.adapter.MyFxAdapter
 import com.pc.mykotlin.powerFX.bean.FindBean
 import com.pc.mykotlin.powerFX.presenter.FindPresenter
 import com.pc.mykotlin.powerFX.view.FindView
+import com.pc.mykotlin.publicUI.SearchActivity
 import kotlinx.android.synthetic.main.frag_fx.*
 
 /**
  * Created by pc on 2017/12/27.
  */
 
-class Fragment_FX : Fragment(),FindView {
+class Fragment_FX : Fragment(), FindView {
     //实现数据接口方法
     override fun findShow(findBean: List<FindBean>) {
         //展示数据
@@ -27,28 +28,28 @@ class Fragment_FX : Fragment(),FindView {
         Log.e("TAG-----",findBean.get(0).name)*/
 
         //设置rlv
-        fxfrag_rlv.layoutManager = GridLayoutManager(activity,2)
-        var adapter = MyFxAdapter(activity,findBean)
+        fxfrag_rlv.layoutManager = GridLayoutManager(activity, 2)
+        var adapter = MyFxAdapter(activity, findBean)
         fxfrag_rlv.adapter = adapter
 
         //点击跳转到展示界面
-        adapter.setOnItemListener(object : MyFxAdapter.OnItemListener{
+        adapter.setOnItemListener(object : MyFxAdapter.OnItemListener {
             override fun OnItemClick(findBean: FindBean) {
 
                 //获得参数传到下一界面
                 val name = findBean.name
 
-                var i:Intent = Intent(activity,ListActivity::class.java)
-                i.putExtra("name",name)
+                var i: Intent = Intent(activity, ListActivity::class.java)
+                i.putExtra("name", name)
                 startActivity(i)
             }
 
         })
 
         //点击跳转搜索界面
-        fx_search.setOnClickListener(object : View.OnClickListener{
+        fx_search.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
-                var i: Intent = Intent()
+                var i: Intent = Intent(activity, SearchActivity::class.java)
                 startActivity(i)
             }
 
@@ -59,7 +60,7 @@ class Fragment_FX : Fragment(),FindView {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         //关联
-        var p:FindPresenter = FindPresenter(this)
+        var p: FindPresenter = FindPresenter(this)
         p.pm()
 
         return inflater!!.inflate(R.layout.frag_fx, container, false)

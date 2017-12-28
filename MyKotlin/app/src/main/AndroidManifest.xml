@@ -21,8 +21,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".powerFX.ListActivity" />
-        <activity android:name=".JiaoZi.JiaoZiActivity"></activity>
-        <activity android:name=".powerFX.BaseActivity"></activity>
+        <activity android:name=".JiaoZi.JiaoZiActivity" />
+        <activity android:name=".powerFX.BaseActivity" />
+        <activity android:name=".publicUI.SearchActivity" />
+        <activity android:name=".searchShow.ShowSearchActivity"></activity>
     </application>
 
 </manifest>
