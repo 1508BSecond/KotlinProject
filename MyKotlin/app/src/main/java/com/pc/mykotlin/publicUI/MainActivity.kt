@@ -3,6 +3,7 @@ package com.pc.mykotlin.publicUI
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import anet.channel.util.Utils.context
 
 import com.hjm.bottomtabbar.BottomTabBar
 import com.pc.mykotlin.R
@@ -10,6 +11,9 @@ import com.pc.mykotlin.publicUI.fragment.Fragment_FX
 import com.pc.mykotlin.publicUI.fragment.Fragment_RM
 import com.pc.mykotlin.publicUI.fragment.Fragment_SY
 import com.pc.mykotlin.publicUI.fragment.Fragment_WD
+import com.umeng.analytics.MobclickAgent
+import com.umeng.commonsdk.UMConfigure
+import com.umeng.message.PushAgent
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +22,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        UMConfigure.setLogEnabled(true);
+        UMConfigure.setEncryptEnabled(true);
+        MobclickAgent.setScenarioType(this, MobclickAgent.EScenarioType.E_UM_NORMAL)
+        MobclickAgent.setSessionContinueMillis(1000)
+        PushAgent.getInstance(context).onAppStart();
         initView()
 
         /*if (Build.VERSION.SDK_INT >= 21) {
@@ -47,5 +57,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun initView() {
         mMainBar = findViewById(R.id.main_bar) as BottomTabBar
+    }
+
+    public override fun onResume() {
+        super.onResume()
+        MobclickAgent.onResume(this)
+    }
+
+    public override fun onPause() {
+        super.onPause()
+        MobclickAgent.onPause(this)
     }
 }
