@@ -20,7 +20,7 @@ class ListActivity : AppCompatActivity() ,ListInfoView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
 
-        StatusBarUtil.setTransparent(this)
+        StatusBarUtil.setTranslucent(this)
         //点击返回
         list_iv_back.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {

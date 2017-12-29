@@ -15,7 +15,7 @@ class SearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
-        StatusBarUtil.setTransparent(this)
+        StatusBarUtil.setTranslucent(this)
         //点击返回
         search_iv_back.setOnClickListener(object :View.OnClickListener{
             override fun onClick(v: View?) {

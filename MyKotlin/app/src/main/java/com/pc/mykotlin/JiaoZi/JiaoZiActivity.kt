@@ -2,12 +2,15 @@ package com.pc.mykotlin.JiaoZi
 
 import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
 import cn.jzvd.JZVideoPlayerStandard
 import com.bumptech.glide.Glide
 import com.jaeger.library.StatusBarUtil
+import com.pc.mykotlin.JiaoZi.cache.CacheBean
+import com.pc.mykotlin.JiaoZi.cache.DownLoadFile
 import com.pc.mykotlin.JiaoZi.utils.JiaoPresenter
 import com.pc.mykotlin.JiaoZi.utils.JiaoView
 import com.pc.mykotlin.JiaoZi.utils.JiaoziBean
@@ -15,6 +18,8 @@ import com.pc.mykotlin.R
 import kotlinx.android.synthetic.main.activity_jiao_zi.*
 
 class JiaoZiActivity : AppCompatActivity(), JiaoView {
+
+    var downLoadFile:DownLoadFile? = null
 
     var position: Int? = null
 
@@ -60,7 +65,15 @@ class JiaoZiActivity : AppCompatActivity(), JiaoView {
         Glide.with(this@JiaoZiActivity).load(blurred).into(img)
 
         tv_huan.setOnClickListener(View.OnClickListener {
-            Toast.makeText(this@JiaoZiActivity,"缓存正在改进",Toast.LENGTH_SHORT).show()
+
+            var cache:CacheBean = CacheBean(DataBean!!.title!!, DataBean!!.cover!!.feed!!)
+
+            //进行下载
+            downLoadFile = DownLoadFile(this@JiaoZiActivity,DataBean?.playUrl, "/"+DataBean!!.title!!+".mp4"+Environment.getExternalStorageDirectory(),3)
+            downLoadFile?.downLoad()
+
+            Toast.makeText(this@JiaoZiActivity,"开始下载",Toast.LENGTH_SHORT).show()
+
         })
 
         fanhui.setOnClickListener(View.OnClickListener {

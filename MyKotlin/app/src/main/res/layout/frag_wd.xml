@@ -37,15 +37,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#fff"
             android:text="收藏"
             android:textColor="#4e4c4c"
-            android:background="#fff"
             android:textSize="15dp" />
 
         <View
             android:layout_width="0.5dp"
             android:layout_height="match_parent"
             android:background="#1a1818"></View>
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -55,12 +56,14 @@
             android:textColor="#4e4c4c"
             android:textSize="15dp" />
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#1a1818"></View>
 
     <TextView
+        android:id="@+id/frag_wd_cache"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
