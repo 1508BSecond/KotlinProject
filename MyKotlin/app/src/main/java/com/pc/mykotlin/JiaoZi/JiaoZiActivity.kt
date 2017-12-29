@@ -1,10 +1,12 @@
 package com.pc.mykotlin.JiaoZi
 
+import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
 import cn.jzvd.JZVideoPlayerStandard
+import com.bumptech.glide.Glide
 import com.jaeger.library.StatusBarUtil
 import com.pc.mykotlin.JiaoZi.utils.JiaoPresenter
 import com.pc.mykotlin.JiaoZi.utils.JiaoView
@@ -20,7 +22,7 @@ class JiaoZiActivity : AppCompatActivity(), JiaoView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_jiao_zi)
 
-        StatusBarUtil.setTransparent(this)
+        StatusBarUtil.setTranslucent(this)
 
         val category = intent.getStringExtra("category")
         val stringExtra = intent.getStringExtra("position")
@@ -43,6 +45,9 @@ class JiaoZiActivity : AppCompatActivity(), JiaoView {
         val category = DataBean!!.category
         val url = DataBean!!.playUrl
         val duration = DataBean!!.duration
+        val blurred = DataBean!!.cover!!.blurred
+        val feed = DataBean!!.cover!!.feed
+
 
         //设置值
         jiao_tv_name.setText(title)
@@ -52,11 +57,18 @@ class JiaoZiActivity : AppCompatActivity(), JiaoView {
         tv2.setText(""+duration)
         tv3.setText(""+duration)
 
+        Glide.with(this@JiaoZiActivity).load(blurred).into(img)
+
         tv_huan.setOnClickListener(View.OnClickListener {
             Toast.makeText(this@JiaoZiActivity,"缓存正在改进",Toast.LENGTH_SHORT).show()
         })
 
+        fanhui.setOnClickListener(View.OnClickListener {
+            finish()
+        })
+
         videoplayer.setUp(url, JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL, "");
+        videoplayer.thumbImageView.setImageURI(Uri.parse(feed));
     }
 
     override fun onBackPressed() {
