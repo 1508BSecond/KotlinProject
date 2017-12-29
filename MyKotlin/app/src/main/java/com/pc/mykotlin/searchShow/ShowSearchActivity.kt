@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import com.jaeger.library.StatusBarUtil
 import com.pc.mykotlin.JiaoZi.JiaoZiActivity
 import com.pc.mykotlin.R
 import com.pc.mykotlin.searchShow.adapter.SearchListAdapter
@@ -21,6 +22,7 @@ class ShowSearchActivity : AppCompatActivity(),SearchShowView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_show_search)
 
+        StatusBarUtil.setTransparent(this)
         //点击销毁界面
         search_show_back.setOnClickListener(object :View.OnClickListener{
             override fun onClick(v: View?) {

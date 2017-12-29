@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import anet.channel.util.Utils.context
 
 import com.hjm.bottomtabbar.BottomTabBar
+import com.jaeger.library.StatusBarUtil
 import com.pc.mykotlin.R
 import com.pc.mykotlin.publicUI.fragment.Fragment_FX
 import com.pc.mykotlin.publicUI.fragment.Fragment_RM
@@ -23,11 +24,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+<<<<<<< HEAD
         UMConfigure.setLogEnabled(true);
         UMConfigure.setEncryptEnabled(true);
         MobclickAgent.setScenarioType(this, MobclickAgent.EScenarioType.E_UM_NORMAL)
         MobclickAgent.setSessionContinueMillis(1000)
         PushAgent.getInstance(context).onAppStart();
+=======
+        StatusBarUtil.setTranslucent(this)
+
+>>>>>>> 1eed28ac57602724867ee4ddd7a31718403f7902
         initView()
 
         /*if (Build.VERSION.SDK_INT >= 21) {

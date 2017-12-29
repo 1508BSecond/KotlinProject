@@ -6,6 +6,7 @@ import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.jaeger.library.StatusBarUtil
 import com.pc.mykotlin.R
 import kotlinx.android.synthetic.main.activity_welcome.*
 
@@ -15,6 +16,7 @@ class WelcomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
 
+        StatusBarUtil.setTranslucent(this)
         //给图片设置属性动画
         var animatorX: ObjectAnimator = ObjectAnimator.ofFloat(wel_iv,"scaleX",0.1f,1.5f)
         var animatorY: ObjectAnimator = ObjectAnimator.ofFloat(wel_iv,"scaleY",0.1f,1.5f)
