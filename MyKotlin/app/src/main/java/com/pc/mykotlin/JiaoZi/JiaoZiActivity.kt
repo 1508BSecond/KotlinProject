@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
 import cn.jzvd.JZVideoPlayerStandard
+import com.jaeger.library.StatusBarUtil
 import com.pc.mykotlin.JiaoZi.utils.JiaoPresenter
 import com.pc.mykotlin.JiaoZi.utils.JiaoView
 import com.pc.mykotlin.JiaoZi.utils.JiaoziBean
@@ -18,6 +19,8 @@ class JiaoZiActivity : AppCompatActivity(), JiaoView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_jiao_zi)
+
+        StatusBarUtil.setTransparent(this)
 
         val category = intent.getStringExtra("category")
         val stringExtra = intent.getStringExtra("position")

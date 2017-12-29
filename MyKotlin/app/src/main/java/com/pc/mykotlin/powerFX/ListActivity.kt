@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import com.jaeger.library.StatusBarUtil
 import com.pc.mykotlin.JiaoZi.JiaoZiActivity
 import com.pc.mykotlin.R
 import com.pc.mykotlin.powerFX.adapter.ListRlvAdapter
@@ -19,6 +20,7 @@ class ListActivity : AppCompatActivity() ,ListInfoView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
 
+        StatusBarUtil.setTransparent(this)
         //点击返回
         list_iv_back.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {

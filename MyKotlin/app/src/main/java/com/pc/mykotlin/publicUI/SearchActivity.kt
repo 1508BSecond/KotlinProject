@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import com.jaeger.library.StatusBarUtil
 import com.pc.mykotlin.R
 import com.pc.mykotlin.searchShow.ShowSearchActivity
 import kotlinx.android.synthetic.main.activity_search.*
@@ -14,6 +15,7 @@ class SearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
+        StatusBarUtil.setTransparent(this)
         //点击返回
         search_iv_back.setOnClickListener(object :View.OnClickListener{
             override fun onClick(v: View?) {

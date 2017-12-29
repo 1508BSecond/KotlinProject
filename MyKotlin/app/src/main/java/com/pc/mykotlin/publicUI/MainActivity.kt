@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 
 import com.hjm.bottomtabbar.BottomTabBar
+import com.jaeger.library.StatusBarUtil
 import com.pc.mykotlin.R
 import com.pc.mykotlin.publicUI.fragment.Fragment_FX
 import com.pc.mykotlin.publicUI.fragment.Fragment_RM
@@ -18,6 +19,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        StatusBarUtil.setTransparent(this)
+
         initView()
 
         /*if (Build.VERSION.SDK_INT >= 21) {
