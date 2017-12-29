@@ -24,7 +24,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".publicUI.MainActivity"></activity>
+        <activity android:name=".publicUI.MainActivity">
+
+        </activity>
         <activity android:name=".powerFX.ListActivity" />
         <activity android:name=".JiaoZi.JiaoZiActivity" />
         <activity android:name=".publicUI.SearchActivity" />
@@ -36,12 +38,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
         <meta-data android:value="5a46016bf29d9830ee000042" android:name="UMENG_APPKEY"/>
         <meta-data android:value="Kotlin_test" android:name="UMENG_CHANNEL"/>
-=======
-        <activity android:name=".JiaoZi.cache.CacheListActivity"></activity>
->>>>>>> 1eed28ac57602724867ee4ddd7a31718403f7902
     </application>
 
 </manifest>
